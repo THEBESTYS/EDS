@@ -11,6 +11,7 @@
             --accent: #E74C3C;
             --light: #ECF0F1;
             --dark: #2C3E50;
+            --success: #27AE60;
             --gradient: linear-gradient(135deg, #3498DB, #2C3E50);
         }
         
@@ -147,6 +148,14 @@
             background: #c0392b;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: #2980b9;
         }
         
         /* 섹션 공통 스타일 */
@@ -308,6 +317,43 @@
             color: var(--primary);
         }
         
+        /* 커리큘럼 상세 섹션 추가 */
+        .curriculum-detail {
+            background-color: var(--light);
+            margin-top: 3rem;
+            padding: 3rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--success);
+        }
+        
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .curriculum-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .tech-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-feature {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary);
+        }
+        
         /* 시너지 효과 */
         .synergy {
             background-color: var(--light);
@@ -416,6 +462,37 @@
             text-align: center;
         }
         
+        /* 학습 환경 섹션 */
+        .learning-environment {
+            background-color: white;
+        }
+        
+        .platform-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .platform-feature {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .platform-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .platform-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
         /* 푸터 */
         footer {
             background-color: var(--dark);
@@ -497,18 +574,55 @@
                 left: 0;
                 text-align: left;
             }
+            
+            .curriculum-detail {
+                padding: 2rem 1rem;
+            }
+            
+            .tech-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .tab-btn {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .platform-features {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="container header-content">           
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-img">ED</div>
+                <span>English Discoveries</span>
             </div>
             <nav>
                 <ul>
                     <li><a href="#features">AI EdTech</a></li>
+                    <li><a href="#curriculum">커리큘럼</a></li>
                     <li><a href="#programs">프로그램</a></li>
+                    <li><a href="#technology">기술특징</a></li>
                     <li><a href="#synergy">시너지</a></li>
                     <li><a href="https://youtu.be/a4IU0ibrBDI">ED(ETS)</a></li>
                     <li><a href="#contact">문의</a></li>
@@ -520,7 +634,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>AI 기반 글로벌 영어 역량 강화 프로그램</h1>
-            <p>English-uP with ED: ETS 검증 AI 솔루션을 통한 종합적 영어 능력 평가 및 맞춤형 코칭 시스템</p>
+            <p>English Discoveries: 1,000시간 이상의 참여형 핵심 콘텐츠와 최첨단 인터랙티브 기술</p>
             <a href="#contact" class="btn">도입 문의하기</a>
         </div>
     </section>
@@ -537,6 +651,42 @@
                     <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMjAwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9IiMzNDk4REIiLz4KPHRleHQgeD0iMTAwIiB5PSI0NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiPkVuZ2xpc2ggRGlzY292ZXJpZXM8L3RleHQ+Cjwvc3ZnPgo=" alt="English Discoveries" class="partner-logo">
                     
                     <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMTUwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9IiMyQzNFNTAiLz4KPHRleHQgeD0iNzUiIHk9IjQ1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCI+RVRTIEdsb2JhbDwvdGV4dD4KPC9zdmc+Cg==" alt="ETS Global" class="partner-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum" class="curriculum-detail">
+        <div class="container">
+            <div class="section-title">
+                <h2>종합적 영어 학습 커리큘럼</h2>
+            </div>
+            
+            <div class="collab-content">
+                <p><strong>일반 영어 과정은 10개의 학습 단계로 구성된 1,000시간 이상의 참여형 핵심 내용을 제공합니다.</strong> 각 단계는 듣기, 읽기, 말하기, 쓰기, 문법, 어휘 및 웹 리터러시와 같은 모든 주요 언어 기술에 대한 실습을 학생들에게 제공하는 여러 주제 기반 단위를 포함합니다.</p>
+                
+                <div class="curriculum-grid">
+                    <div class="curriculum-item">
+                        <h3><i class="fas fa-layer-group"></i> 10단계 학습 체계</h3>
+                        <p>체계적으로 구성된 10개의 학습 레벨로 단계별 영어 능력 향상</p>
+                    </div>
+                    <div class="curriculum-item">
+                        <h3><i class="fas fa-clock"></i> 1,000+ 학습 시간</h3>
+                        <p>풍부한 멀티미디어 콘텐츠로 구성된 참여형 학습 환경</p>
+                    </div>
+                    <div class="curriculum-item">
+                        <h3><i class="fas fa-bullseye"></i> 종합 언어 기술</h3>
+                        <p>듣기, 읽기, 말하기, 쓰기, 문법, 어휘, 웹 리터러시 통합 개발</p>
+                    </div>
+                    <div class="curriculum-item">
+                        <h3><i class="fas fa-bookmark"></i> 주제 기반 유닛</h3>
+                        <p>실생활 주제 중심의 다양한 학습 유닛 구성</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 10px; border-left: 4px solid var(--success);">
+                    <h4 style="color: var(--success); margin-bottom: 1rem;">✔ 학습 효과 극대화</h4>
+                    <p>수업은 학생들이 시험 환경을 준비하는 것을 돕기 위해 다양한 질문 형식을 포함합니다. 초기 배치 테스트와 학습 경로에 따른 평가는 지속적인 진행 상황 모니터링을 가능하게 합니다.</p>
                 </div>
             </div>
         </div>
@@ -577,10 +727,71 @@
         </div>
     </section>
 
+    <section id="technology" class="learning-environment">
+        <div class="container">
+            <div class="section-title">
+                <h2>최첨단 인터랙티브 기술 특징</h2>
+            </div>
+            
+            <div class="collab-content">
+                <p><strong>커뮤니케이션 언어 접근 방식을 기반으로 한 English Discoveries 코스는</strong> 대화형 실제 비디오, 고급 음성 인식 기술, 애니메이션, 라디오 방송, 팝업 사전, 문법 지원, 역할극 및 루브릭, 발음 과정 및 25개 언어로 확장 가능한 모국어 지원을 포함한 화면 민감 도움말을 제공합니다.</p>
+                
+                <div class="tech-features">
+                    <div class="tech-feature">
+                        <h4><i class="fas fa-microphone-alt"></i> 고급 음성 인식</h4>
+                        <p>자동 음성 인식 기술로 발음 정확도 실시간 평가</p>
+                    </div>
+                    <div class="tech-feature">
+                        <h4><i class="fas fa-video"></i> 대화형 실제 비디오</h4>
+                        <p>생생한 실제 상황 비디오로 자연스러운 영어 습득</p>
+                    </div>
+                    <div class="tech-feature">
+                        <h4><i class="fas fa-book"></i> 팝업 디지털 사전</h4>
+                        <p>주문형 디지털 이중언어 사전 제공</p>
+                    </div>
+                    <div class="tech-feature">
+                        <h4><i class="fas fa-language"></i> 25개 언어 지원</h4>
+                        <p>모국어 지원 확장으로 학습 장벽 제거</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--secondary); margin-bottom: 1rem;">🎯 핵심 학습 도구</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>대화형 관용구 학습</strong> - 실제 대화에서 사용되는 관용적 표현 학습
+                        </li>
+                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>분기 대화 시나리오</strong> - 다양한 상황별 대화 연습
+                        </li>
+                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>전체 화면 비디오 학습</strong> - 몰입형 영상 콘텐츠
+                        </li>
+                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>모의 라디오 방송</strong> - 실제 방송 듣기 연습
+                        </li>
+                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>커뮤니티 포럼</strong> - 학습자 간 상호작용 공간
+                        </li>
+                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>대화형 과제</strong> - 실전 적용 중심 학습 활동
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="programs" class="programs">
         <div class="container">
             <div class="section-title">
-                <h2>프로그램 개요: "English-uP with ED"</h2>
+                <h2>프로그램 개요: "English Discoveries"</h2>
             </div>
             <div class="program-tabs">
                 <button class="tab-btn active" onclick="openTab(event, 'basic')">Basic</button>
@@ -596,7 +807,7 @@
                         <th>주요 내용</th>
                     </tr>
                     <tr>
-                        <td>English-uP with ED Basic</td>
+                        <td>English Discoveries Basic</td>
                         <td>대학 신입생 및 기초 학습 필요 학생</td>
                         <td>CEFR A1-B1 수준 기초 영어 종합 진단 및 맞춤형 코칭</td>
                     </tr>
@@ -611,7 +822,7 @@
                         <th>주요 내용</th>
                     </tr>
                     <tr>
-                        <td>English-uP with ED Advanced</td>
+                        <td>English Discoveries Advanced</td>
                         <td>전교생 (중급 이상)</td>
                         <td>CEFR B2-C1 수준 Academic Writing 및 발표 능력 강화</td>
                     </tr>
@@ -626,11 +837,54 @@
                         <th>주요 내용</th>
                     </tr>
                     <tr>
-                        <td>Global-uP (예정)</td>
+                        <td>Global Discoveries (예정)</td>
                         <td>해외 교류 준비 학생</td>
                         <td>유학/연수 대비 실전 영어 및 문화 적응력 종합 훈련</td>
                     </tr>
                 </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="platform-access">
+        <div class="container">
+            <div class="section-title">
+                <h2>멀티플랫폼 접근성</h2>
+            </div>
+            
+            <div class="collab-content">
+                <p><strong>학생들은 노트북, 태블릿 및 스마트폰을 포함한 다양한 플랫폼에서 쉽게 강좌와 수업에 액세스할 수 있습니다.</strong> 언제 어디서나 학습이 가능한 유연한 환경을 제공합니다.</p>
+                
+                <div class="platform-features">
+                    <div class="platform-feature">
+                        <div class="platform-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h4>노트북</h4>
+                        <p>풀사이즈 학습 경험</p>
+                    </div>
+                    <div class="platform-feature">
+                        <div class="platform-icon">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <h4>태블릿</h4>
+                        <p>휴대성과 편의성</p>
+                    </div>
+                    <div class="platform-feature">
+                        <div class="platform-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>스마트폰</h4>
+                        <p>언제 어디서나 학습</p>
+                    </div>
+                    <div class="platform-feature">
+                        <div class="platform-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4>동기화</h4>
+                        <p>기기간 학습 진행 동기화</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -666,12 +920,14 @@
                     <p>✅ ETS 검증 시스템으로 신뢰성 있는 영어 실력 진단</p>
                     <p>✅ 글로벌 인증 (CEFR/TOEFL/TOEIC) 점수 연계를 통한 해외 교류 및 취업 지원</p>
                     <p>✅ 7대 영역 실시간 진단 및 즉각적인 피드백 가이드를 통한 약점 집중 보완</p>
+                    <p>✅ 1,000시간 이상의 풍부한 참여형 콘텐츠 학습</p>
                 </div>
                 <div class="benefit-card">
                     <h3>대학 측면</h3>
                     <p>✅ 국제적으로 인정받은 평가 시스템 도입으로 교육의 질 제고</p>
                     <p>✅ AI 기반 교육 혁신 사례 확대 (UNESCO 등 국제 사례 보고 가능)</p>
                     <p>✅ 데이터 기반 학습 전략 수립으로 교육 효율성 제고</p>
+                    <p>✅ 최첨단 인터랙티브 기술을 활용한 현대적 학습 환경 제공</p>
                 </div>
             </div>
         </div>
@@ -686,7 +942,7 @@
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h3>2026년 1학기</h3>
-                        <p>English-uP with ED Basic 시범 운영 (신입생 대상)</p>
+                        <p>English Discoveries Basic 시범 운영 (신입생 대상)</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
@@ -698,14 +954,12 @@
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h3>2027년</h3>
-                        <p>Global-uP 모듈 개발 및 해외 연계 프로그램 적용</p>
+                        <p>Global Discoveries 모듈 개발 및 해외 연계 프로그램 적용</p>
                     </div>
                 </div>
             </div>
-            <div style="margin-top: 3rem;">
-                <h3 style="text-align: center; margin-bottom: 1rem;">지원 요청</h3>
-                <p style="text-align: center;">플랫폼 연동을 위한 기술 협력 (기존 교육 플랫폼과의 통합)</p>
-                <p style="text-align: center;">맞춤형 콘텐츠 개발을 위한 교수진-에듀테크 업체 간 협의체 구성</p>
+            <div style="margin-top: 3rem; text-align: center;">
+                <a href="#contact" class="btn btn-secondary">도입 상담 신청하기</a>
             </div>
         </div>
     </section>
@@ -713,14 +967,33 @@
     <section class="conclusion">
         <div class="container">
             <div class="section-title">
-                <h2>글로벌 리더 양성을 위한 AI 영어 교육 혁신</h2>
+                <h2>English Discoveries: 종합적 영어 교육 솔루션</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 10px;">
+                <p><strong>English Discoveries 프로그램은 다음과 같은 핵심 가치를 제공합니다:</strong></p>
+                <ul style="list-style: none; padding-left: 0; margin-top: 1rem;">
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
+                        <strong>1,000시간 이상의 참여형 콘텐츠</strong> - 종합적 영어 능력 개발
+                    </li>
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
+                        <strong>최첨단 인터랙티브 기술</strong> - 몰입형 학습 경험
+                    </li>
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
+                        <strong>다중 플랫폼 접근성</strong> - 언제 어디서나 학습 가능
+                    </li>
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
+                        <strong>ETS 검증 시스템</strong> - 국제적으로 인정받은 평가
+                    </li>
+                </ul>
             </div>
             <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem;">
-                'English Discoveries'는 ETS의 검증을 받은 종합적 영어 평가 및 학습 솔루션입니다. 
-                이로써 대학의 글로벌 교육 비전을 실현하고자 합니다. 교수학습혁신센터의 AI 교육 노하우와 
-                ED의 글로벌 표준 기술이 결합하여 한국 대학 영어 교육의 새로운 미래를 제시합니다.
+                English Discoveries는 대학의 글로벌 교육 비전을 실현하고자 합니다. 교수학습혁신센터의 AI 교육 노하우와 ED의 글로벌 표준 기술이 결합하여 한국 대학 영어 교육의 새로운 미래를 제시합니다.
             </p>
-            <a href="#contact" class="btn">도입 상담 신청하기</a>
+            <a href="#contact" class="btn">지금 바로 상담하기</a>
         </div>
     </section>
 
@@ -760,6 +1033,25 @@
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
+        
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
