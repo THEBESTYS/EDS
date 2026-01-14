@@ -1,1059 +1,196 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>에듀포레 - English Discoveries(ED) 대학 프로그램</title>
-    <style>
-        :root {
-            --primary: #2C3E50;
-            --secondary: #3498DB;
-            --accent: #E74C3C;
-            --light: #ECF0F1;
-            --dark: #2C3E50;
-            --success: #27AE60;
-            --gradient: linear-gradient(135deg, #3498DB, #2C3E50);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-        }
-        
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* 헤더 스타일 */
-        header {
-            background: var(--gradient);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            background-color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--secondary);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav li {
-            margin-left: 2rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        nav a:hover {
-            color: #FFD700;
-        }
-        
-        /* 히어로 섹션 */
-        .hero {
-            background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=800') no-repeat center center/cover;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .btn-secondary {
-            background: var(--secondary);
-        }
-        
-        .btn-secondary:hover {
-            background: #2980b9;
-        }
-        
-        /* 섹션 공통 스타일 */
-        section {
-            padding: 5rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-        }
-        
-        /* 협력 섹션 */
-        .collaboration {
-            background-color: white;
-        }
-        
-        .collab-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .partner-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .partner-logo {
-            height: 80px;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-        
-        .partner-logo:hover {
-            transform: scale(1.05);
-        }
-        
-        /* 핵심 요소 섹션 */
-        .features {
-            background-color: var(--light);
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            text-align: center;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-        
-        .feature-image {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .feature-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        
-        .feature-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        /* 프로그램 개요 */
-        .programs {
-            background-color: white;
-        }
-        
-        .program-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-        
-        .tab-btn {
-            padding: 1rem 2rem;
-            background: var(--light);
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .tab-btn.active {
-            background: var(--secondary);
-            color: white;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .program-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-        }
-        
-        .program-table th, .program-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .program-table th {
-            background-color: var(--light);
-            color: var(--primary);
-        }
-        
-        /* 커리큘럼 상세 섹션 추가 */
-        .curriculum-detail {
-            background-color: var(--light);
-            margin-top: 3rem;
-            padding: 3rem;
-            border-radius: 15px;
-            border-left: 5px solid var(--success);
-        }
-        
-        .curriculum-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .curriculum-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-        
-        .tech-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .tech-feature {
-            background: rgba(52, 152, 219, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 3px solid var(--secondary);
-        }
-        
-        /* 시너지 효과 */
-        .synergy {
-            background-color: var(--light);
-        }
-        
-        .synergy-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .synergy-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* 기대 효과 */
-        .benefits {
-            background-color: white;
-        }
-        
-        .benefit-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .benefit-card {
-            padding: 1.5rem;
-            border-left: 4px solid var(--secondary);
-            background-color: var(--light);
-        }
-        
-        /* 도입 방안 */
-        .implementation {
-            background-color: var(--light);
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--secondary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 4px solid var(--secondary);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
-        .left {
-            left: 0;
-            text-align: right;
-        }
-        
-        .right {
-            left: 50%;
-        }
-        
-        .left::after {
-            right: -13px;
-        }
-        
-        .right::after {
-            left: -13px;
-        }
-        
-        .timeline-content {
-            padding: 20px;
-            background-color: white;
-            position: relative;
-            border-radius: 6px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        
-        /* 결론 섹션 */
-        .conclusion {
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-        }
-        
-        /* 학습 환경 섹션 */
-        .learning-environment {
-            background-color: white;
-        }
-        
-        .platform-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .platform-feature {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--light);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-        
-        .platform-feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .platform-icon {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-        
-        /* 푸터 */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .contact-info {
-            margin: 1rem 0;
-        }
-        
-        .footer-logos {
-            display: flex;
-            gap: 2rem;
-            margin: 1.5rem 0;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            height: 50px;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-        }
-        
-        .footer-logo:hover {
-            opacity: 1;
-        }
-        
-        /* 반응형 디자인 */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                margin-top: 1rem;
-            }
-            
-            nav li {
-                margin: 0 0.5rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .partner-logos {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 21px;
-            }
-            
-            .left, .right {
-                left: 0;
-                text-align: left;
-            }
-            
-            .curriculum-detail {
-                padding: 2rem 1rem;
-            }
-            
-            .tech-features {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .tab-btn {
-                padding: 0.8rem 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .platform-features {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <div class="logo-img">ED</div>
-                <span>English Discoveries</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#features">AI EdTech</a></li>
-                    <li><a href="#curriculum">커리큘럼</a></li>
-                    <li><a href="#programs">프로그램</a></li>
-                    <li><a href="#technology">기술특징</a></li> 
-                    <li><a href="https://thebestys.github.io/memberadmin/" target="_blank">수강관리</a></li>
-                    <li><a href="manual.html" style="background-color: rgba(255, 255, 255, 0.2);">매뉴얼</a></li>
-                    <li><a href="#synergy">시너지</a></li>
-                    <li><a href="https://youtu.be/a4IU0ibrBDI">ED(ETS)</a></li>
-                    <li><a href="#contact">문의</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+/* 10단계 레벨 시스템 스타일 */
+.level-system {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+}
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>AI 기반 글로벌 영어 역량 강화 프로그램</h1>
-            <p>English Discoveries: 1,000시간 이상의 참여형 핵심 콘텐츠와 최첨단 인터랙티브 기술</p>
-            <a href="#contact" class="btn">도입 문의하기</a>
-        </div>
-    </section>
+.level-section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #eee;
+}
 
-    <section class="collaboration">
-        <div class="container">
-            <div class="section-title">
-                <h2>AI 디지털 교육 혁신을 위한 전략적 협력</h2>
-            </div>
-            <div class="collab-content">
-                <p>에듀포레는 대학이 성공적인 AI 교육 인프라를 영어 교육 영역으로 확장하여, 글로벌 역량 강화와 학습자 맞춤형 영어 교육을 동시에 실현하도록 지원합니다.</p>
-                
-                <div class="partner-logos">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMjAwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9IiMzNDk4REIiLz4KPHRleHQgeD0iMTAwIiB5PSI0NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiPkVuZ2xpc2ggRGlzY292ZXJpZXM8L3RleHQ+Cjwvc3ZnPgo=" alt="English Discoveries" class="partner-logo">
-                    
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMTUwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9IiMyQzNFNTAiLz4KPHRleHQgeD0iNzUiIHk9IjQ1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCI+RVRTIEdsb2JhbDwvdGV4dD4KPC9zdmc+Cg==" alt="ETS Global" class="partner-logo">
-                </div>
-            </div>
-        </div>
-    </section>
+.level-section:last-child {
+    border-bottom: none;
+}
 
-    <section id="curriculum" class="curriculum-detail">
-        <div class="container">
-            <div class="section-title">
-                <h2>종합적 영어 학습 커리큘럼</h2>
-            </div>
-            
-            <div class="collab-content">
-                <p><strong>일반 영어 과정은 10개의 학습 단계로 구성된 1,000시간 이상의 참여형 핵심 내용을 제공합니다.</strong> 각 단계는 듣기, 읽기, 말하기, 쓰기, 문법, 어휘 및 웹 리터러시와 같은 모든 주요 언어 기술에 대한 실습을 학생들에게 제공하는 여러 주제 기반 단위를 포함합니다.</p>
-                
-                <div class="curriculum-grid">
-                    <div class="curriculum-item">
-                        <h3><i class="fas fa-layer-group"></i> 10단계 학습 체계</h3>
-                        <p>체계적으로 구성된 10개의 학습 레벨로 단계별 영어 능력 향상</p>
-                    </div>
-                    <div class="curriculum-item">
-                        <h3><i class="fas fa-clock"></i> 1,000+ 학습 시간</h3>
-                        <p>풍부한 멀티미디어 콘텐츠로 구성된 참여형 학습 환경</p>
-                    </div>
-                    <div class="curriculum-item">
-                        <h3><i class="fas fa-bullseye"></i> 종합 언어 기술</h3>
-                        <p>듣기, 읽기, 말하기, 쓰기, 문법, 어휘, 웹 리터러시 통합 개발</p>
-                    </div>
-                    <div class="curriculum-item">
-                        <h3><i class="fas fa-bookmark"></i> 주제 기반 유닛</h3>
-                        <p>실생활 주제 중심의 다양한 학습 유닛 구성</p>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 10px; border-left: 4px solid var(--success);">
-                    <h4 style="color: var(--success); margin-bottom: 1rem;">✔ 학습 효과 극대화</h4>
-                    <p>수업은 학생들이 시험 환경을 준비하는 것을 돕기 위해 다양한 질문 형식을 포함합니다. 초기 배치 테스트와 학습 경로에 따른 평가는 지속적인 진행 상황 모니터링을 가능하게 합니다.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+.level-section h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>프로그램 차별화 핵심 요소</h2>
-            </div>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQ1IiBmaWxsPSIjRUMwQzRDIi8+CjxwYXRoIGQ9Ik0zNSA0MEw0NSA1MEw2NSA0MEw3NSA1MEw2NSA2MEw0NSA1MEwzNSA2MFoiIGZpbGw9IndoaXRlIi8+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjEwIiBmaWxsPSIjRjc5QzFFIi8+Cjwvc3ZnPgo=" alt="ETS Verification">
-                    </div>
-                    <h3>평가의 신뢰성: 미국 ETS 검증 시스템</h3>
-                    <p>TOEFL/TOEIC 출제 기관인 ETS의 평가 알고리즘 적용</p>
-                    <p>e-rater® 등 ETS 공인 채점 시스템으로 쓰기/말하기 평가 정확도 보장</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQ1IiBmaWxsPSIjMzQ5OERCIi8+CjxwYXRoIGQ9Ik0zMCAzNUw1MCAyMEw3MCAzNUw2MCA1MEw3MCA2NUw1MCA4MEwzMCA2NUw0MCA1MEwzMCAzNVoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=" alt="Global Compatibility">
-                    </div>
-                    <h3>글로벌 호환성: 국제 표준 연계 성적 제공</h3>
-                    <p>CEFR(유럽공통언어표준등급)과의 정확한 매핑으로 유럽 연수 지원 가능</p>
-                    <p>TOEFL/TOEIC 점수와의 상호 연계 가능하여 미국 유학 및 취업 준비에 최적화</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9IiMyQzNFNTAiLz4KPGNpcmNsZSBjeD0iMzUiIGN5PSIzNSIgcj0iMTUiIGZpbGw9IiMzNDk4REIiLz4KPGNpcmNsZSBjeD0iNjUiIGN5PSIzNSIgcj0iMTUiIGZpbGw9IiMzNDk4REIiLz4KPHBhdGggZD0iTTMwIDY1QzMwIDY1IDQwIDUwIDUwIDUwQzYwIDUwIDcwIDY1IDcwIDY1IiBzdHJva2U9IiMzNDk4REIiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K" alt="AI Based Excellence">
-                    </div>
-                    <h3>AI 기반의 탁월성: 종합적 실시간 평가 및 피드백</h3>
-                    <p>7대 영역 종합 평가: 듣기, 읽기, 쓰기, 말하기, 발음, 어휘, 문법</p>
-                    <p>실시간 진단: 1분 내 CEFR/TOEFL/TOEIC 기준 수준 진단</p>
-                    <p>즉각적 코칭: 발음 오류 시 올바른 발음 제공, 문법 오류 시 실시간 교정</p>
-                </div>
-            </div>
-        </div>
-    </section>
+.level-section h3 i {
+    font-size: 1.5rem;
+}
 
-    <section id="technology" class="learning-environment">
-        <div class="container">
-            <div class="section-title">
-                <h2>최첨단 인터랙티브 기술 특징</h2>
-            </div>
-            
-            <div class="collab-content">
-                <p><strong>커뮤니케이션 언어 접근 방식을 기반으로 한 English Discoveries 코스는</strong> 대화형 실제 비디오, 고급 음성 인식 기술, 애니메이션, 라디오 방송, 팝업 사전, 문법 지원, 역할극 및 루브릭, 발음 과정 및 25개 언어로 확장 가능한 모국어 지원을 포함한 화면 민감 도움말을 제공합니다.</p>
-                
-                <div class="tech-features">
-                    <div class="tech-feature">
-                        <h4><i class="fas fa-microphone-alt"></i> 고급 음성 인식</h4>
-                        <p>자동 음성 인식 기술로 발음 정확도 실시간 평가</p>
-                    </div>
-                    <div class="tech-feature">
-                        <h4><i class="fas fa-video"></i> 대화형 실제 비디오</h4>
-                        <p>생생한 실제 상황 비디오로 자연스러운 영어 습득</p>
-                    </div>
-                    <div class="tech-feature">
-                        <h4><i class="fas fa-book"></i> 팝업 디지털 사전</h4>
-                        <p>주문형 디지털 이중언어 사전 제공</p>
-                    </div>
-                    <div class="tech-feature">
-                        <h4><i class="fas fa-language"></i> 25개 언어 지원</h4>
-                        <p>모국어 지원 확장으로 학습 장벽 제거</p>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 2rem;">
-                    <h4 style="color: var(--secondary); margin-bottom: 1rem;">🎯 핵심 학습 도구</h4>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>대화형 관용구 학습</strong> - 실제 대화에서 사용되는 관용적 표현 학습
-                        </li>
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>분기 대화 시나리오</strong> - 다양한 상황별 대화 연습
-                        </li>
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>전체 화면 비디오 학습</strong> - 몰입형 영상 콘텐츠
-                        </li>
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>모의 라디오 방송</strong> - 실제 방송 듣기 연습
-                        </li>
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>커뮤니티 포럼</strong> - 학습자 간 상호작용 공간
-                        </li>
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>대화형 과제</strong> - 실전 적용 중심 학습 활동
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+.level-range {
+    color: var(--secondary);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
 
-    <section id="programs" class="programs">
-        <div class="container">
-            <div class="section-title">
-                <h2>프로그램 개요: "English Discoveries"</h2>
-            </div>
-            <div class="program-tabs">
-                <button class="tab-btn active" onclick="openTab(event, 'basic')">Basic</button>
-                <button class="tab-btn" onclick="openTab(event, 'advanced')">Advanced</button>
-                <button class="tab-btn" onclick="openTab(event, 'global')">Global-uP</button>
-            </div>
-            
-            <div id="basic" class="tab-content active">
-                <table class="program-table">
-                    <tr>
-                        <th>프로그램명</th>
-                        <th>대상</th>
-                        <th>주요 내용</th>
-                    </tr>
-                    <tr>
-                        <td>English Discoveries Basic</td>
-                        <td>대학 신입생 및 기초 학습 필요 학생</td>
-                        <td>CEFR A1-B1 수준 기초 영어 종합 진단 및 맞춤형 코칭</td>
-                    </tr>
-                </table>
-            </div>
-            
-            <div id="advanced" class="tab-content">
-                <table class="program-table">
-                    <tr>
-                        <th>프로그램명</th>
-                        <th>대상</th>
-                        <th>주요 내용</th>
-                    </tr>
-                    <tr>
-                        <td>English Discoveries Advanced</td>
-                        <td>전교생 (중급 이상)</td>
-                        <td>CEFR B2-C1 수준 Academic Writing 및 발표 능력 강화</td>
-                    </tr>
-                </table>
-            </div>
-            
-            <div id="global" class="tab-content">
-                <table class="program-table">
-                    <tr>
-                        <th>프로그램명</th>
-                        <th>대상</th>
-                        <th>주요 내용</th>
-                    </tr>
-                    <tr>
-                        <td>Global Discoveries (예정)</td>
-                        <td>해외 교류 준비 학생</td>
-                        <td>유학/연수 대비 실전 영어 및 문화 적응력 종합 훈련</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </section>
+.level-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
 
-    <section class="platform-access">
-        <div class="container">
-            <div class="section-title">
-                <h2>멀티플랫폼 접근성</h2>
-            </div>
-            
-            <div class="collab-content">
-                <p><strong>학생들은 노트북, 태블릿 및 스마트폰을 포함한 다양한 플랫폼에서 쉽게 강좌와 수업에 액세스할 수 있습니다.</strong> 언제 어디서나 학습이 가능한 유연한 환경을 제공합니다.</p>
-                
-                <div class="platform-features">
-                    <div class="platform-feature">
-                        <div class="platform-icon">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <h4>노트북</h4>
-                        <p>풀사이즈 학습 경험</p>
-                    </div>
-                    <div class="platform-feature">
-                        <div class="platform-icon">
-                            <i class="fas fa-tablet-alt"></i>
-                        </div>
-                        <h4>태블릿</h4>
-                        <p>휴대성과 편의성</p>
-                    </div>
-                    <div class="platform-feature">
-                        <div class="platform-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h4>스마트폰</h4>
-                        <p>언제 어디서나 학습</p>
-                    </div>
-                    <div class="platform-feature">
-                        <div class="platform-icon">
-                            <i class="fas fa-sync-alt"></i>
-                        </div>
-                        <h4>동기화</h4>
-                        <p>기기간 학습 진행 동기화</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.level-card {
+    background: var(--light);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
 
-    <section id="synergy" class="synergy">
-        <div class="container">
-            <div class="section-title">
-                <h2>대학 프로그램과의 시너지 효과</h2>
-            </div>
-            <div class="synergy-content">
-                <div class="synergy-card">
-                    <h3>기존 인프라 연계</h3>
-                    <p>대학 교육 플랫폼에 친화적인 AI 엔진 적용 → 학습자 접근성 용이</p>
-                    <p>학습 데이터 통합 분석을 통한 종합적 학습 역량 평가 가능</p>
-                </div>
-                <div class="synergy-card">
-                    <h3>맞춤형 콘텐츠 개발</h3>
-                    <p>전공별 특화 영어 콘텐츠 제작 (의대, 경영대 등)</p>
-                    <p>외국인 유학생 대상 한국어-영어 이중 지원 모듈 (Topik-uP와 연계)</p>
-                </div>
-            </div>
-        </div>
-    </section>
+.level-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
-    <section id="benefits" class="benefits">
-        <div class="container">
-            <div class="section-title">
-                <h2>기대 효과</h2>
-            </div>
-            <div class="benefit-grid">
-                <div class="benefit-card">
-                    <h3>학습자 측면</h3>
-                    <p>✅ ETS 검증 시스템으로 신뢰성 있는 영어 실력 진단</p>
-                    <p>✅ 글로벌 인증 (CEFR/TOEFL/TOEIC) 점수 연계를 통한 해외 교류 및 취업 지원</p>
-                    <p>✅ 7대 영역 실시간 진단 및 즉각적인 피드백 가이드를 통한 약점 집중 보완</p>
-                    <p>✅ 1,000시간 이상의 풍부한 참여형 콘텐츠 학습</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>대학 측면</h3>
-                    <p>✅ 국제적으로 인정받은 평가 시스템 도입으로 교육의 질 제고</p>
-                    <p>✅ AI 기반 교육 혁신 사례 확대 (UNESCO 등 국제 사례 보고 가능)</p>
-                    <p>✅ 데이터 기반 학습 전략 수립으로 교육 효율성 제고</p>
-                    <p>✅ 최첨단 인터랙티브 기술을 활용한 현대적 학습 환경 제공</p>
-                </div>
-            </div>
-        </div>
-    </section>
+.level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
 
-    <section class="implementation">
-        <div class="container">
-            <div class="section-title">
-                <h2>도입 및 운영 방안</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>2026년 1학기</h3>
-                        <p>English Discoveries Basic 시범 운영 (신입생 대상)</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>2026년 2학기</h3>
-                        <p>Advanced 모듈 추가 및 전교생 확대</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>2027년</h3>
-                        <p>Global Discoveries 모듈 개발 및 해외 연계 프로그램 적용</p>
-                    </div>
-                </div>
-            </div>
-            <div style="margin-top: 3rem; text-align: center;">
-                <a href="#contact" class="btn btn-secondary">도입 상담 신청하기</a>
-            </div>
-        </div>
-    </section>
+.level-header h4 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin: 0;
+}
 
-    <section class="conclusion">
-        <div class="container">
-            <div class="section-title">
-                <h2>English Discoveries: 종합적 영어 교육 솔루션</h2>
-            </div>
-            <div style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 10px;">
-                <p><strong>English Discoveries 프로그램은 다음과 같은 핵심 가치를 제공합니다:</strong></p>
-                <ul style="list-style: none; padding-left: 0; margin-top: 1rem;">
-                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
-                        <strong>1,000시간 이상의 참여형 콘텐츠</strong> - 종합적 영어 능력 개발
-                    </li>
-                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
-                        <strong>최첨단 인터랙티브 기술</strong> - 몰입형 학습 경험
-                    </li>
-                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
-                        <strong>다중 플랫폼 접근성</strong> - 언제 어디서나 학습 가능
-                    </li>
-                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
-                        <strong>ETS 검증 시스템</strong> - 국제적으로 인정받은 평가
-                    </li>
-                </ul>
-            </div>
-            <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem;">
-                English Discoveries는 대학의 글로벌 교육 비전을 실현하고자 합니다. 교수학습혁신센터의 AI 교육 노하우와 ED의 글로벌 표준 기술이 결합하여 한국 대학 영어 교육의 새로운 미래를 제시합니다.
-            </p>
-            <a href="#contact" class="btn">지금 바로 상담하기</a>
-        </div>
-    </section>
+.level-badge {
+    background: var(--secondary);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
 
-    <footer id="contact">
-        <div class="container footer-content">
-            <h3>에듀포레</h3>
-            <div class="contact-info">
-                <p>English Discoveries(ED) 프로그램에 대한 문의</p>
-                <p>전화: 02-2123-3451</p>
-                <p>이메일: danielko@yonsei.ac.kr</p>
-            </div>
-            
-            <div class="footer-logos">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiByeD0iNSIgZmlsbD0iIzJDM0U1MCIvPgo8dGV4dCB4PSI3NSIgeT0iMjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIj5FbmdsaXNoIERpc2NvdmVyaWVzPC90ZXh0Pgo8L3N2Zz4K" alt="English Discoveries" class="footer-logo">
-                
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTIwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjUwIiByeD0iNSIgZmlsbD0iIzJDM0U1MCIvPgo8dGV4dCB4PSI2MCIgeT0iMjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIj5FVFMgR2xvYmFsPC90ZXh0Pgo8L3N2Zz4K" alt="ETS Global" class="footer-logo">
-            </div>
-            
-            <p>© 2025 에듀포레. All rights reserved.</p>
-        </div>
-    </footer>
+.level-desc {
+    color: #666;
+    margin-bottom: 1rem;
+}
 
-    <script>
-        function openTab(evt, tabName) {
-            var i, tabcontent, tabbuttons;
-            
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            
-            tabbuttons = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tabbuttons.length; i++) {
-                tabbuttons[i].classList.remove("active");
-            }
-            
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-        
-        // 부드러운 스크롤
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') === '#') return;
-                
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+.level-image {
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.level-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.level-info {
+    background: rgba(52, 152, 219, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary);
+}
+
+.level-info h5 {
+    color: var(--primary);
+    margin: 1rem 0 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.level-info h5:first-child {
+    margin-top: 0;
+}
+
+.level-info h5 i {
+    color: var(--secondary);
+}
+
+.cefr-reference {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #eee;
+}
+
+.cefr-chart {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.cefr-chart h4 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cefr-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cefr-level {
+    display: grid;
+    grid-template-columns: 80px 1fr 200px;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cefr-label {
+    font-weight: 600;
+    color: var(--dark);
+    text-align: center;
+}
+
+.cefr-bar {
+    height: 20px;
+    border-radius: 10px;
+}
+
+.cefr-bar.beginner {
+    background: linear-gradient(to right, #4CAF50, #8BC34A);
+}
+
+.cefr-bar.intermediate {
+    background: linear-gradient(to right, #FF9800, #FFC107);
+}
+
+.cefr-bar.advanced {
+    background: linear-gradient(to right, #F44336, #E91E63);
+}
+
+.cefr-course {
+    color: var(--dark);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .level-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .cefr-level {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .level-image {
+        height: 120px;
+    }
+}
