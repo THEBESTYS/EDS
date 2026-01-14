@@ -482,7 +482,6 @@
         .cefr-b1 { background: linear-gradient(135deg, #32CD32, #9ACD32); color: white; }
         .cefr-a2 { background: linear-gradient(135deg, #1E90FF, #6495ED); color: white; }
         .cefr-a1 { background: linear-gradient(135deg, #9370DB, #BA55D3); color: white; }
-        .cefr-pre-a1 { background: linear-gradient(135deg, #808080, #A9A9A9); color: white; }
         
         /* CEFR 레전드 */
         .cefr-legend {
@@ -606,6 +605,96 @@
                 gap: 0.5rem;
             }
         }
+        
+        /* 추가 스타일 */
+        .curriculum-detail {
+            background-color: white;
+        }
+        
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .curriculum-item {
+            padding: 1.5rem;
+            background-color: var(--light);
+            border-radius: 10px;
+        }
+        
+        .curriculum-item h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .learning-environment {
+            background-color: var(--light);
+        }
+        
+        .tech-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-feature {
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tech-feature h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-content h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo {
+            height: 50px;
+            object-fit: contain;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -619,8 +708,10 @@
             </div>
             <nav>
                 <ul>
+                    <li><a href="#features">AI EdTech</a></li>
                     <li><a href="#curriculum">커리큘럼</a></li>
                     <li><a href="#programs">프로그램</a></li>
+                    <li><a href="#compatibility">글로벌 호환성</a></li>
                     <li><a href="#technology">기술특징</a></li> 
                     <li><a href="https://thebestys.github.io/memberadmin/" target="_blank">수강관리</a></li>
                     <li><a href="manual.html" style="background-color: rgba(255, 255, 255, 0.2);">매뉴얼</a></li>
@@ -823,7 +914,7 @@
         </div>
     </section>
 
-    <!-- 글로벌 호환성 그래픽 차트 섹션 추가 -->
+    <!-- 글로벌 호환성 그래픽 차트 섹션 -->
     <section id="compatibility" class="global-compatibility">
         <div class="container">
             <div class="section-title">
@@ -853,7 +944,7 @@
                             </div>
                             <div class="score-item">
                                 <div class="score-label">IELTS</div>
-                                <div class="score-value">7.0-9.0</div>
+                                <div class="score-value">7.0-8.0</div>
                             </div>
                         </div>
                     </div>
@@ -880,7 +971,7 @@
                             </div>
                             <div class="score-item">
                                 <div class="score-label">IELTS</div>
-                                <div class="score-value">7.0-9.0</div>
+                                <div class="score-value">7.0-8.0</div>
                             </div>
                         </div>
                     </div>
