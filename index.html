@@ -391,328 +391,131 @@
             color: var(--secondary);
         }
         
-        .cefr-reference {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 2px solid #eee;
-        }
-        
-        .cefr-chart {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-        
-        .cefr-chart h4 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .cefr-levels {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .cefr-level {
-            display: grid;
-            grid-template-columns: 80px 1fr 200px;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .cefr-label {
-            font-weight: 600;
-            color: var(--dark);
-            text-align: center;
-        }
-        
-        .cefr-bar {
-            height: 20px;
-            border-radius: 10px;
-        }
-        
-        .cefr-bar.beginner {
-            background: linear-gradient(to right, #4CAF50, #8BC34A);
-        }
-        
-        .cefr-bar.intermediate {
-            background: linear-gradient(to right, #FF9800, #FFC107);
-        }
-        
-        .cefr-bar.advanced {
-            background: linear-gradient(to right, #F44336, #E91E63);
-        }
-        
-        .cefr-course {
-            color: var(--dark);
-            font-weight: 500;
-        }
-        
-        .program-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-        
-        .tab-btn {
-            padding: 1rem 2rem;
-            background: var(--light);
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .tab-btn.active {
-            background: var(--secondary);
-            color: white;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .program-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-        }
-        
-        .program-table th, .program-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .program-table th {
+        /* 글로벌 호환성 그래픽 차트 */
+        .global-compatibility {
             background-color: var(--light);
-            color: var(--primary);
-        }
-        
-        /* 커리큘럼 상세 섹션 추가 */
-        .curriculum-detail {
-            background-color: var(--light);
-            margin-top: 3rem;
             padding: 3rem;
             border-radius: 15px;
-            border-left: 5px solid var(--success);
+            margin-top: 3rem;
         }
         
-        .curriculum-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .curriculum-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-        
-        .tech-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .tech-feature {
-            background: rgba(52, 152, 219, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 3px solid var(--secondary);
-        }
-        
-        /* 시너지 효과 */
-        .synergy {
-            background-color: var(--light);
-        }
-        
-        .synergy-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .synergy-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* 기대 효과 */
-        .benefits {
-            background-color: white;
-        }
-        
-        .benefit-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .benefit-card {
-            padding: 1.5rem;
-            border-left: 4px solid var(--secondary);
-            background-color: var(--light);
-        }
-        
-        /* 도입 방안 */
-        .implementation {
-            background-color: var(--light);
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 800px;
+        .compatibility-chart {
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
             margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--secondary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
             position: relative;
-            width: 50%;
-            box-sizing: border-box;
         }
         
-        .timeline-item::after {
+        .chart-level {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .chart-level:last-child {
+            margin-bottom: 0;
+        }
+        
+        .chart-level::before {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 4px solid var(--secondary);
-            top: 15px;
-            border-radius: 50%;
+            left: 150px;
+            right: 150px;
+            height: 2px;
+            background: #ddd;
             z-index: 1;
         }
         
-        .left {
-            left: 0;
+        .chart-level:first-child::before {
+            top: 50%;
+        }
+        
+        .chart-level:last-child::before {
+            bottom: 50%;
+        }
+        
+        .chart-ed-level {
+            width: 140px;
             text-align: right;
+            padding-right: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            z-index: 2;
         }
         
-        .right {
-            left: 50%;
+        .chart-cefr-level {
+            width: 80px;
+            text-align: center;
+            background: white;
+            padding: 0.8rem 0.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            font-weight: 700;
+            z-index: 2;
+            margin: 0 10px;
         }
         
-        .left::after {
-            right: -13px;
+        .chart-toefl-toeic {
+            width: 400px;
+            padding-left: 20px;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            z-index: 2;
         }
         
-        .right::after {
-            left: -13px;
+        .toefl-toeic-scores {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
         }
         
-        .timeline-content {
-            padding: 20px;
-            background-color: white;
-            position: relative;
-            border-radius: 6px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        
-        /* 결론 섹션 */
-        .conclusion {
-            background: var(--gradient);
-            color: white;
+        .score-item {
             text-align: center;
         }
         
-        /* 학습 환경 섹션 */
-        .learning-environment {
-            background-color: white;
+        .score-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.3rem;
         }
         
-        .platform-access {
-            background-color: var(--light);
+        .score-value {
+            font-weight: 700;
+            color: var(--secondary);
         }
         
-        .platform-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+        /* CEFR 색상 표시 */
+        .cefr-c2 { background: linear-gradient(135deg, #8B0000, #B22222); color: white; }
+        .cefr-c1 { background: linear-gradient(135deg, #DC143C, #FF4500); color: white; }
+        .cefr-b2 { background: linear-gradient(135deg, #FF8C00, #FFA500); color: white; }
+        .cefr-b1 { background: linear-gradient(135deg, #32CD32, #9ACD32); color: white; }
+        .cefr-a2 { background: linear-gradient(135deg, #1E90FF, #6495ED); color: white; }
+        .cefr-a1 { background: linear-gradient(135deg, #9370DB, #BA55D3); color: white; }
+        .cefr-pre-a1 { background: linear-gradient(135deg, #808080, #A9A9A9); color: white; }
+        
+        /* CEFR 레전드 */
+        .cefr-legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
             margin-top: 2rem;
         }
         
-        .platform-feature {
-            text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-        
-        .platform-feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .platform-icon {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-        
-        /* 푸터 */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .footer-content {
+        .legend-item {
             display: flex;
-            flex-direction: column;
             align-items: center;
+            gap: 0.5rem;
         }
         
-        .contact-info {
-            margin: 1rem 0;
-        }
-        
-        .footer-logos {
-            display: flex;
-            gap: 2rem;
-            margin: 1.5rem 0;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            height: 50px;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-        }
-        
-        .footer-logo:hover {
-            opacity: 1;
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
         }
         
         /* 반응형 디자인 */
@@ -744,45 +547,40 @@
                 gap: 2rem;
             }
             
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 21px;
-            }
-            
-            .left, .right {
-                left: 0;
-                text-align: left;
-            }
-            
-            .curriculum-detail {
-                padding: 2rem 1rem;
-            }
-            
-            .tech-features {
-                grid-template-columns: 1fr;
-            }
-            
             .level-cards {
                 grid-template-columns: 1fr;
             }
             
-            .cefr-level {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 0.5rem;
+            .compatibility-chart {
+                flex-direction: column;
             }
             
-            .level-image {
-                height: 120px;
+            .chart-level {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 2rem;
+                padding-bottom: 2rem;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .chart-level::before {
+                display: none;
+            }
+            
+            .chart-ed-level, .chart-cefr-level, .chart-toefl-toeic {
+                width: 100%;
+                text-align: left;
+                margin: 0.5rem 0;
+            }
+            
+            .chart-ed-level {
+                text-align: left;
+                padding-right: 0;
+                font-size: 1.2rem;
+            }
+            
+            .chart-cefr-level {
+                width: 120px;
             }
         }
         
@@ -799,15 +597,6 @@
                 font-size: 1.8rem;
             }
             
-            .tab-btn {
-                padding: 0.8rem 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .platform-features {
-                grid-template-columns: 1fr;
-            }
-            
             nav ul {
                 flex-direction: column;
                 align-items: center;
@@ -815,6 +604,15 @@
             
             nav li {
                 margin: 0.3rem 0;
+            }
+            
+            .global-compatibility {
+                padding: 1.5rem;
+            }
+            
+            .toefl-toeic-scores {
+                flex-direction: column;
+                gap: 0.5rem;
             }
         }
     </style>
@@ -833,6 +631,7 @@
                     <li><a href="#features">AI EdTech</a></li>
                     <li><a href="#curriculum">커리큘럼</a></li>
                     <li><a href="#programs">프로그램</a></li>
+                    <li><a href="#compatibility">글로벌 호환성</a></li>
                     <li><a href="#technology">기술특징</a></li> 
                     <li><a href="https://thebestys.github.io/memberadmin/" target="_blank">수강관리</a></li>
                     <li><a href="manual.html" style="background-color: rgba(255, 255, 255, 0.2);">매뉴얼</a></li>
@@ -849,23 +648,6 @@
             <h1>AI 기반 글로벌 영어 역량 강화 프로그램</h1>
             <p>English Discoveries: 1,000시간 이상의 참여형 핵심 콘텐츠와 최첨단 인터랙티브 기술</p>
             <a href="#contact" class="btn">도입 문의하기</a>
-        </div>
-    </section>
-
-    <section class="collaboration">
-        <div class="container">
-            <div class="section-title">
-                <h2>AI 디지털 교육 혁신을 위한 전략적 협력</h2>
-            </div>
-            <div class="collab-content">
-                <p>에듀포레는 대학이 성공적인 AI 교육 인프라를 영어 교육 영역으로 확장하여, 글로벌 역량 강화와 학습자 맞춤형 영어 교육을 동시에 실현하도록 지원합니다.</p>
-                
-                <div class="partner-logos">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMjAwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9IiMzNDk4REIiLz4KPHRleHQgeD0iMTAwIiB5PSI0NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiPkVuZ2xpc2ggRGlzY292ZXJpZXM8L3RleHQ+Cjwvc3ZnPgo=" alt="English Discoveries" class="partner-logo">
-                    
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMTUwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9IiMyQzNFNTAiLz4KPHRleHQgeD0iNzUiIHk9IjQ1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCI+RVRTIEdsb2JhbDwvdGV4dD4KPC9zdmc+Cg==" alt="ETS Global" class="partner-logo">
-                </div>
-            </div>
         </div>
     </section>
 
@@ -940,6 +722,435 @@
         </div>
     </section>
 
+    <section id="programs" class="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>English Discoveries 10단계 레벨 시스템</h2>
+                <p>CEFR 기준에 따른 체계적인 레벨 구분으로 맞춤형 학습이 가능합니다</p>
+            </div>
+            
+            <div class="level-system">
+                <div class="level-section beginner">
+                    <h3><i class="fas fa-seedling"></i> 초급 과정</h3>
+                    <p class="level-range">Pre-Basic ~ Basic 3</p>
+                    
+                    <div class="level-cards">
+                        <div class="level-card">
+                            <div class="level-header">
+                                <h4>Pre-Basic (Pre-A1)</h4>
+                                <span class="level-badge">입문</span>
+                            </div>
+                            <p class="level-desc">영어 완전 초보자 대상 기초 입문</p>
+                        </div>
+                        
+                        <div class="level-card">
+                            <div class="level-header">
+                                <h4>Basic 3 (A1)</h4>
+                                <span class="level-badge">기초1</span>
+                            </div>
+                            <p class="level-desc">초보자 수준 기본 표현 학습</p>
+                        </div>
+                        
+                        <div class="level-card">
+                            <div class="level-header">
+                                <h4>Basic 2 (A1)</h4>
+                                <span class="level-badge">기초2</span>
+                            </div>
+                            <p class="level-desc">기초 회화 능력 향상</p>
+                        </div>
+                        
+                        <div class="level-card">
+                            <div class="level-header">
+                                <h4>Basic 1 (A2)</h4>
+                                <span class="level-badge">기초3</span>
+                            </div>
+                            <p class="level-desc">일상 표현 확장 학습</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="level-section intermediate">
+                    <h3><i class="fas fa-chart-line"></i> 중급 과정</h3>
+                    <p class="level-range">Intermediate 1 ~ 3</p>
+                    
+                    <div class="level-cards">
+                        <div class="level-card">
+                            <div class="level-header">
+                                <h4>Intermediate 1 (A2)</h4>
+                                <span class="level-badge">중급1</span>
+                            </div>
+                            <p class="level-desc">중급 단계 진입 및 기본 회화 완성</p>
+                        </div>
+                        
+                        <div class="level-card">
+                            <div class="level-header">
+                                <h4>Intermediate 2 (B1)</h4>
+                                <span class="level-badge">중급2</span>
+                            </div>
+                            <p class="level-desc">실용 영어 능력 개발</p>
+                        </div>
+                        
+                        <div class="level-card">
+                            <div class="level-header">
+                                <h4>Intermediate 3 (B2)</h4>
+                                <span class="level-badge">중급3</span>
+                            </div>
+                            <p class="level-desc">사회적, 직업적 상황 의사소통</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="level-section advanced">
+                    <h3><i class="fas fa-trophy"></i> 고급 과정</h3>
+                    <p class="level-range">Advanced 1 ~ 3</p>
+                    
+                    <div class="level-cards">
+                        <div class="level-card">
+                            <div class="level-header">
+                                <h4>Advanced 1 (B2)</h4>
+                                <span class="level-badge">고급1</span>
+                            </div>
+                            <p class="level-desc">고급 영어 진입 단계</p>
+                        </div>
+                        
+                        <div class="level-card">
+                            <div class="level-header">
+                                <h4>Advanced 2 (C1)</h4>
+                                <span class="level-badge">고급2</span>
+                            </div>
+                            <p class="level-desc">전문적 표현 능력 향상</p>
+                        </div>
+                        
+                        <div class="level-card">
+                            <div class="level-header">
+                                <h4>Advanced 3 (C2)</h4>
+                                <span class="level-badge">고급3</span>
+                            </div>
+                            <p class="level-desc">원어민 수준 유창한 표현</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 글로벌 호환성 그래픽 차트 섹션 추가 -->
+    <section id="compatibility" class="global-compatibility">
+        <div class="container">
+            <div class="section-title">
+                <h2>글로벌 영어 인증시스템 호환성</h2>
+                <p>English Discoveries와 국제 공인 영어 시험의 상호 연계</p>
+            </div>
+            
+            <div class="compatibility-chart">
+                <!-- Advanced 3 - C2 -->
+                <div class="chart-level">
+                    <div class="chart-ed-level">
+                        <strong>Advanced 3</strong>
+                    </div>
+                    <div class="chart-cefr-level cefr-c2">
+                        C2
+                    </div>
+                    <div class="chart-toefl-toeic">
+                        <strong>원어민 수준 (Mastery)</strong>
+                        <div class="toefl-toeic-scores">
+                            <div class="score-item">
+                                <div class="score-label">TOEFL iBT</div>
+                                <div class="score-value">118-120</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">TOEIC</div>
+                                <div class="score-value">990</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">IELTS</div>
+                                <div class="score-value">8.5-9.0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Advanced 2 - C1 -->
+                <div class="chart-level">
+                    <div class="chart-ed-level">
+                        <strong>Advanced 2</strong>
+                    </div>
+                    <div class="chart-cefr-level cefr-c1">
+                        C1
+                    </div>
+                    <div class="chart-toefl-toeic">
+                        <strong>고급 (Advanced)</strong>
+                        <div class="toefl-toeic-scores">
+                            <div class="score-item">
+                                <div class="score-label">TOEFL iBT</div>
+                                <div class="score-value">95-117</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">TOEIC</div>
+                                <div class="score-value">945-990</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">IELTS</div>
+                                <div class="score-value">7.0-8.0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Advanced 1 - B2 -->
+                <div class="chart-level">
+                    <div class="chart-ed-level">
+                        <strong>Advanced 1</strong>
+                    </div>
+                    <div class="chart-cefr-level cefr-b2">
+                        B2
+                    </div>
+                    <div class="chart-toefl-toeic">
+                        <strong>중상급 (Upper Intermediate)</strong>
+                        <div class="toefl-toeic-scores">
+                            <div class="score-item">
+                                <div class="score-label">TOEFL iBT</div>
+                                <div class="score-value">72-94</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">TOEIC</div>
+                                <div class="score-value">785-944</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">IELTS</div>
+                                <div class="score-value">5.5-6.5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Intermediate 3 - B2 -->
+                <div class="chart-level">
+                    <div class="chart-ed-level">
+                        <strong>Intermediate 3</strong>
+                    </div>
+                    <div class="chart-cefr-level cefr-b2">
+                        B2
+                    </div>
+                    <div class="chart-toefl-toeic">
+                        <strong>중상급 (Upper Intermediate)</strong>
+                        <div class="toefl-toeic-scores">
+                            <div class="score-item">
+                                <div class="score-label">TOEFL iBT</div>
+                                <div class="score-value">72-94</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">TOEIC</div>
+                                <div class="score-value">785-944</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">IELTS</div>
+                                <div class="score-value">5.5-6.5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Intermediate 2 - B1 -->
+                <div class="chart-level">
+                    <div class="chart-ed-level">
+                        <strong>Intermediate 2</strong>
+                    </div>
+                    <div class="chart-cefr-level cefr-b1">
+                        B1
+                    </div>
+                    <div class="chart-toefl-toeic">
+                        <strong>중급 (Intermediate)</strong>
+                        <div class="toefl-toeic-scores">
+                            <div class="score-item">
+                                <div class="score-label">TOEFL iBT</div>
+                                <div class="score-value">42-71</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">TOEIC</div>
+                                <div class="score-value">550-784</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">IELTS</div>
+                                <div class="score-value">4.0-5.0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Intermediate 1 - A2 -->
+                <div class="chart-level">
+                    <div class="chart-ed-level">
+                        <strong>Intermediate 1</strong>
+                    </div>
+                    <div class="chart-cefr-level cefr-a2">
+                        A2
+                    </div>
+                    <div class="chart-toefl-toeic">
+                        <strong>초중급 (Pre-Intermediate)</strong>
+                        <div class="toefl-toeic-scores">
+                            <div class="score-item">
+                                <div class="score-label">TOEFL iBT</div>
+                                <div class="score-value">N/A</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">TOEIC</div>
+                                <div class="score-value">225-549</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">IELTS</div>
+                                <div class="score-value">3.0-3.5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Basic 1 - A2 -->
+                <div class="chart-level">
+                    <div class="chart-ed-level">
+                        <strong>Basic 1</strong>
+                    </div>
+                    <div class="chart-cefr-level cefr-a2">
+                        A2
+                    </div>
+                    <div class="chart-toefl-toeic">
+                        <strong>초중급 (Pre-Intermediate)</strong>
+                        <div class="toefl-toeic-scores">
+                            <div class="score-item">
+                                <div class="score-label">TOEFL iBT</div>
+                                <div class="score-value">N/A</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">TOEIC</div>
+                                <div class="score-value">225-549</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">IELTS</div>
+                                <div class="score-value">3.0-3.5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Basic 2 - A1 -->
+                <div class="chart-level">
+                    <div class="chart-ed-level">
+                        <strong>Basic 2</strong>
+                    </div>
+                    <div class="chart-cefr-level cefr-a1">
+                        A1
+                    </div>
+                    <div class="chart-toefl-toeic">
+                        <strong>초급 (Elementary)</strong>
+                        <div class="toefl-toeic-scores">
+                            <div class="score-item">
+                                <div class="score-label">TOEFL iBT</div>
+                                <div class="score-value">N/A</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">TOEIC</div>
+                                <div class="score-value">120-224</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">IELTS</div>
+                                <div class="score-value">2.0-2.5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Basic 3 - A1 -->
+                <div class="chart-level">
+                    <div class="chart-ed-level">
+                        <strong>Basic 3</strong>
+                    </div>
+                    <div class="chart-cefr-level cefr-a1">
+                        A1
+                    </div>
+                    <div class="chart-toefl-toeic">
+                        <strong>초급 (Elementary)</strong>
+                        <div class="toefl-toeic-scores">
+                            <div class="score-item">
+                                <div class="score-label">TOEFL iBT</div>
+                                <div class="score-value">N/A</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">TOEIC</div>
+                                <div class="score-value">120-224</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">IELTS</div>
+                                <div class="score-value">2.0-2.5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pre-Basic - Pre-A1 -->
+                <div class="chart-level">
+                    <div class="chart-ed-level">
+                        <strong>Pre-Basic</strong>
+                    </div>
+                    <div class="chart-cefr-level cefr-pre-a1">
+                        Pre-A1
+                    </div>
+                    <div class="chart-toefl-toeic">
+                        <strong>입문자 (Beginner)</strong>
+                        <div class="toefl-toeic-scores">
+                            <div class="score-item">
+                                <div class="score-label">TOEFL iBT</div>
+                                <div class="score-value">N/A</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">TOEIC</div>
+                                <div class="score-value">10-119</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">IELTS</div>
+                                <div class="score-value">1.0-1.5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cefr-legend">
+                <div class="legend-item">
+                    <div class="legend-color cefr-c2"></div>
+                    <span>C2: 원어민 수준</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color cefr-c1"></div>
+                    <span>C1: 고급</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color cefr-b2"></div>
+                    <span>B2: 중상급</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color cefr-b1"></div>
+                    <span>B1: 중급</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color cefr-a2"></div>
+                    <span>A2: 초중급</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color cefr-a1"></div>
+                    <span>A1: 초급</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color cefr-pre-a1"></div>
+                    <span>Pre-A1: 입문자</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; text-align: center; color: #666; font-size: 0.9rem;">
+                <p><strong>참고:</strong> TOEFL iBT, TOEIC, IELTS 점수는 일반적인 연계 기준이며, 정확한 변환은 공식 기관의 최신 기준을 참조하십시오.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="technology" class="learning-environment">
         <div class="container">
             <div class="section-title">
@@ -967,392 +1178,7 @@
                         <p>모국어 지원 확장으로 학습 장벽 제거</p>
                     </div>
                 </div>
-                
-                <div style="margin-top: 2rem;">
-                    <h4 style="color: var(--secondary); margin-bottom: 1rem;">🎯 핵심 학습 도구</h4>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>대화형 관용구 학습</strong> - 실제 대화에서 사용되는 관용적 표현 학습
-                        </li>
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>분기 대화 시나리오</strong> - 다양한 상황별 대화 연습
-                        </li>
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>전체 화면 비디오 학습</strong> - 몰입형 영상 콘텐츠
-                        </li>
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>모의 라디오 방송</strong> - 실제 방송 듣기 연습
-                        </li>
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>커뮤니티 포럼</strong> - 학습자 간 상호작용 공간
-                        </li>
-                        <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>대화형 과제</strong> - 실전 적용 중심 학습 활동
-                        </li>
-                    </ul>
-                </div>
             </div>
-        </div>
-    </section>
-
-    <section id="programs" class="programs">
-        <div class="container">
-            <div class="section-title">
-                <h2>English Discoveries 10단계 레벨 시스템</h2>
-                <p>CEFR 기준에 따른 체계적인 레벨 구분으로 맞춤형 학습이 가능합니다</p>
-            </div>
-            
-            <div class="level-system">
-                <div class="level-section beginner">
-                    <h3><i class="fas fa-seedling"></i> 초급 과정</h3>
-                    <p class="level-range">First Discoveries ~ Basic 3</p>
-                    
-                    <div class="level-cards">
-                        <div class="level-card">
-                            <div class="level-header">
-                                <h4>First Discoveries (Pre-A1)</h4>
-                                <span class="level-badge">입문</span>
-                            </div>
-                            <p class="level-desc">영어 입문</p>
-                            <div class="level-image">
-                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="First Discoveries">
-                            </div>
-                        </div>
-                        
-                        <div class="level-card">
-                            <div class="level-header">
-                                <h4>Basic 1 (A1)</h4>
-                                <span class="level-badge">기초</span>
-                            </div>
-                            <p class="level-desc">기초 회화</p>
-                            <div class="level-image">
-                                <img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Basic 1">
-                            </div>
-                        </div>
-                        
-                        <div class="level-card">
-                            <div class="level-header">
-                                <h4>Basic 2 (A1+)</h4>
-                                <span class="level-badge">확장</span>
-                            </div>
-                            <p class="level-desc">일상 표현 확장</p>
-                            <div class="level-image">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Basic 2">
-                            </div>
-                        </div>
-                        
-                        <div class="level-card">
-                            <div class="level-header">
-                                <h4>Basic 3 (A2)</h4>
-                                <span class="level-badge">완성</span>
-                            </div>
-                            <p class="level-desc">기본 의사소통 완성</p>
-                            <div class="level-image">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Basic 3">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="level-info">
-                        <h5><i class="fas fa-bullseye"></i> 학습 목표</h5>
-                        <p>일상 생활에서 필요한 기본 영어 구사</p>
-                        
-                        <h5><i class="fas fa-user-check"></i> 추천 대상</h5>
-                        <p>영어 초보자, 기초부터 체계적으로 배우고 싶은 분</p>
-                    </div>
-                </div>
-                
-                <div class="level-section intermediate">
-                    <h3><i class="fas fa-chart-line"></i> 중급 과정</h3>
-                    <p class="level-range">Intermediate 1 ~ 3</p>
-                    
-                    <div class="level-cards">
-                        <div class="level-card">
-                            <div class="level-header">
-                                <h4>Intermediate 1 (A2+)</h4>
-                                <span class="level-badge">중급입문</span>
-                            </div>
-                            <p class="level-desc">중급 입문</p>
-                            <div class="level-image">
-                                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Intermediate 1">
-                            </div>
-                        </div>
-                        
-                        <div class="level-card">
-                            <div class="level-header">
-                                <h4>Intermediate 2 (B1)</h4>
-                                <span class="level-badge">실용</span>
-                            </div>
-                            <p class="level-desc">실용 영어</p>
-                            <div class="level-image">
-                                <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Intermediate 2">
-                            </div>
-                        </div>
-                        
-                        <div class="level-card">
-                            <div class="level-header">
-                                <h4>Intermediate 3 (B1+)</h4>
-                                <span class="level-badge">고급중급</span>
-                            </div>
-                            <p class="level-desc">고급 중급</p>
-                            <div class="level-image">
-                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Intermediate 3">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="level-info">
-                        <h5><i class="fas fa-bullseye"></i> 학습 목표</h5>
-                        <p>사회적, 직업적 상황에서 효과적인 의사소통</p>
-                        
-                        <h5><i class="fas fa-user-check"></i> 추천 대상</h5>
-                        <p>기본 회화는 가능하나 유창함을 원하시는 분</p>
-                    </div>
-                </div>
-                
-                <div class="level-section advanced">
-                    <h3><i class="fas fa-trophy"></i> 고급 과정</h3>
-                    <p class="level-range">Advanced 1 ~ 3</p>
-                    
-                    <div class="level-cards">
-                        <div class="level-card">
-                            <div class="level-header">
-                                <h4>Advanced 1 (B2)</h4>
-                                <span class="level-badge">고급입문</span>
-                            </div>
-                            <p class="level-desc">고급 입문</p>
-                            <div class="level-image">
-                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Advanced 1">
-                            </div>
-                        </div>
-                        
-                        <div class="level-card">
-                            <div class="level-header">
-                                <h4>Advanced 2 (B2+)</h4>
-                                <span class="level-badge">전문</span>
-                            </div>
-                            <p class="level-desc">전문적 표현</p>
-                            <div class="level-image">
-                                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Advanced 2">
-                            </div>
-                        </div>
-                        
-                        <div class="level-card">
-                            <div class="level-header">
-                                <h4>Advanced 3 (C1)</h4>
-                                <span class="level-badge">원어민</span>
-                            </div>
-                            <p class="level-desc">원어민 수준</p>
-                            <div class="level-image">
-                                <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Advanced 3">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="level-info">
-                        <h5><i class="fas fa-bullseye"></i> 학습 목표</h5>
-                        <p>복잡한 주제에 대한 유창한 표현, 전문적 언어 구사</p>
-                        
-                        <h5><i class="fas fa-user-check"></i> 추천 대상</h5>
-                        <p>비즈니스, 학술적 목적의 고급 영어가 필요한 분</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="cefr-reference">
-                <div class="cefr-chart">
-                    <h4><i class="fas fa-map-signs"></i> CEFR 기준과의 연계</h4>
-                    <div class="cefr-levels">
-                        <div class="cefr-level">
-                            <span class="cefr-label">Pre-A1</span>
-                            <div class="cefr-bar beginner"></div>
-                            <span class="cefr-course">First Discoveries</span>
-                        </div>
-                        <div class="cefr-level">
-                            <span class="cefr-label">A1</span>
-                            <div class="cefr-bar beginner"></div>
-                            <span class="cefr-course">Basic 1</span>
-                        </div>
-                        <div class="cefr-level">
-                            <span class="cefr-label">A2</span>
-                            <div class="cefr-bar beginner"></div>
-                            <span class="cefr-course">Basic 2-3</span>
-                        </div>
-                        <div class="cefr-level">
-                            <span class="cefr-label">B1</span>
-                            <div class="cefr-bar intermediate"></div>
-                            <span class="cefr-course">Intermediate 1-3</span>
-                        </div>
-                        <div class="cefr-level">
-                            <span class="cefr-label">B2</span>
-                            <div class="cefr-bar advanced"></div>
-                            <span class="cefr-course">Advanced 1-2</span>
-                        </div>
-                        <div class="cefr-level">
-                            <span class="cefr-label">C1</span>
-                            <div class="cefr-bar advanced"></div>
-                            <span class="cefr-course">Advanced 3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="platform-access">
-        <div class="container">
-            <div class="section-title">
-                <h2>멀티플랫폼 접근성</h2>
-            </div>
-            
-            <div class="collab-content">
-                <p><strong>학생들은 노트북, 태블릿 및 스마트폰을 포함한 다양한 플랫폼에서 쉽게 강좌와 수업에 액세스할 수 있습니다.</strong> 언제 어디서나 학습이 가능한 유연한 환경을 제공합니다.</p>
-                
-                <div class="platform-features">
-                    <div class="platform-feature">
-                        <div class="platform-icon">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <h4>노트북</h4>
-                        <p>풀사이즈 학습 경험</p>
-                    </div>
-                    <div class="platform-feature">
-                        <div class="platform-icon">
-                            <i class="fas fa-tablet-alt"></i>
-                        </div>
-                        <h4>태블릿</h4>
-                        <p>휴대성과 편의성</p>
-                    </div>
-                    <div class="platform-feature">
-                        <div class="platform-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h4>스마트폰</h4>
-                        <p>언제 어디서나 학습</p>
-                    </div>
-                    <div class="platform-feature">
-                        <div class="platform-icon">
-                            <i class="fas fa-sync-alt"></i>
-                        </div>
-                        <h4>동기화</h4>
-                        <p>기기간 학습 진행 동기화</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="synergy" class="synergy">
-        <div class="container">
-            <div class="section-title">
-                <h2>대학 프로그램과의 시너지 효과</h2>
-            </div>
-            <div class="synergy-content">
-                <div class="synergy-card">
-                    <h3>기존 인프라 연계</h3>
-                    <p>대학 교육 플랫폼에 친화적인 AI 엔진 적용 → 학습자 접근성 용이</p>
-                    <p>학습 데이터 통합 분석을 통한 종합적 학습 역량 평가 가능</p>
-                </div>
-                <div class="synergy-card">
-                    <h3>맞춤형 콘텐츠 개발</h3>
-                    <p>전공별 특화 영어 콘텐츠 제작 (의대, 경영대 등)</p>
-                    <p>외국인 유학생 대상 한국어-영어 이중 지원 모듈 (Topik-uP와 연계)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="benefits" class="benefits">
-        <div class="container">
-            <div class="section-title">
-                <h2>기대 효과</h2>
-            </div>
-            <div class="benefit-grid">
-                <div class="benefit-card">
-                    <h3>학습자 측면</h3>
-                    <p>✅ ETS 검증 시스템으로 신뢰성 있는 영어 실력 진단</p>
-                    <p>✅ 글로벌 인증 (CEFR/TOEFL/TOEIC) 점수 연계를 통한 해외 교류 및 취업 지원</p>
-                    <p>✅ 7대 영역 실시간 진단 및 즉각적인 피드백 가이드를 통한 약점 집중 보완</p>
-                    <p>✅ 1,000시간 이상의 풍부한 참여형 콘텐츠 학습</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>대학 측면</h3>
-                    <p>✅ 국제적으로 인정받은 평가 시스템 도입으로 교육의 질 제고</p>
-                    <p>✅ AI 기반 교육 혁신 사례 확대 (UNESCO 등 국제 사례 보고 가능)</p>
-                    <p>✅ 데이터 기반 학습 전략 수립으로 교육 효율성 제고</p>
-                    <p>✅ 최첨단 인터랙티브 기술을 활용한 현대적 학습 환경 제공</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="implementation">
-        <div class="container">
-            <div class="section-title">
-                <h2>도입 및 운영 방안</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>2026년 1학기</h3>
-                        <p>English Discoveries Basic 시범 운영 (신입생 대상)</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>2026년 2학기</h3>
-                        <p>Advanced 모듈 추가 및 전교생 확대</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>2027년</h3>
-                        <p>Global Discoveries 모듈 개발 및 해외 연계 프로그램 적용</p>
-                    </div>
-                </div>
-            </div>
-            <div style="margin-top: 3rem; text-align: center;">
-                <a href="#contact" class="btn btn-secondary">도입 상담 신청하기</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="conclusion">
-        <div class="container">
-            <div class="section-title">
-                <h2>English Discoveries: 종합적 영어 교육 솔루션</h2>
-            </div>
-            <div style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 10px;">
-                <p><strong>English Discoveries 프로그램은 다음과 같은 핵심 가치를 제공합니다:</strong></p>
-                <ul style="list-style: none; padding-left: 0; margin-top: 1rem;">
-                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
-                        <strong>1,000시간 이상의 참여형 콘텐츠</strong> - 종합적 영어 능력 개발
-                    </li>
-                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
-                        <strong>최첨단 인터랙티브 기술</strong> - 몰입형 학습 경험
-                    </li>
-                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
-                        <strong>다중 플랫폼 접근성</strong> - 언제 어디서나 학습 가능
-                    </li>
-                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                        <i class="fas fa-star" style="color: #FFD700; position: absolute; left: 0;"></i>
-                        <strong>ETS 검증 시스템</strong> - 국제적으로 인정받은 평가
-                    </li>
-                </ul>
-            </div>
-            <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem;">
-                English Discoveries는 대학의 글로벌 교육 비전을 실현하고자 합니다. 교수학습혁신센터의 AI 교육 노하우와 ED의 글로벌 표준 기술이 결합하여 한국 대학 영어 교육의 새로운 미래를 제시합니다.
-            </p>
-            <a href="#contact" class="btn">지금 바로 상담하기</a>
         </div>
     </section>
 
@@ -1376,23 +1202,6 @@
     </footer>
 
     <script>
-        function openTab(evt, tabName) {
-            var i, tabcontent, tabbuttons;
-            
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            
-            tabbuttons = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tabbuttons.length; i++) {
-                tabbuttons[i].classList.remove("active");
-            }
-            
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-        
         // 부드러운 스크롤
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
